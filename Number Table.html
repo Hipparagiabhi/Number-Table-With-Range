@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: url("2.jpg");
+        background-repeat: no-repeat; 
+        background-size:cover;
+    }
+    .test{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color:darkgoldenrod;
+        /* background-color: cadetblue; */
+    }
+    #btn1{
+        margin-top: 10px;
+        background-color: black;
+        color:darkgoldenrod;
+
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:90vh;
+
+    }
+      .inner{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid darkgoldenrod ;
+        border-radius:5px;
+        padding: 2px;
+        margin: 2px;
+    } 
+    .demo{
+         display:grid; 
+         grid-template-columns: repeat(10 , 1fr);
+         align-items: center;
+        justify-content: center;
+        color:darkgoldenrod;
+        text-align: center;
+        font-size: large;
+        font-weight: 800;
+    }
+
+    #table1,#table3,#length{
+
+        margin: 2px;
+        border: 3px solid darkgoldenrod ;
+        border-radius: 5px;
+        text-align: center;
+    }
+     .table{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+
+    } 
+
+    
+</style>
+<body>
+<div class="container">
+    <div class="test">
+            <h1>Feed the number to dispaly Table  </h1>
+            <input type=text id="table1" placeholder="Enetr Number here">
+            <input type=text id="table3" placeholder="Enetr Number upto where u want"> 
+            <input type=text id="length" placeholder="Enetr Number of Multiples here">
+            <button type="button" id="btn1">Click here </button>
+            <div class="table">
+            <div class="demo" id="demo"></div>
+            </div>
+    </div>
+</div>
+    <script>
+        let inputnumber=document.getElementById("table1");
+        let inputnumber2=document.getElementById("table3");
+        let length=document.getElementById("length");
+        let button=document.getElementById("btn1");
+        button.onclick=handler;
+
+        function handler(){
+            let  number=parseInt(inputnumber.value);
+            let loop=parseInt(inputnumber2.value);
+            let  number1=parseInt(length.value);
+            let multiplication="";
+            for(k=number;k<=loop;k++){
+                 let html=`<div class="inner">`
+                for (let i=1;i<=number1;i++){
+                     html +=(k+"x" + (i)+ "="+ (k*i)) + "<br/>";
+                    //  result=k*i;
+                    // console.log(multiplication);
+                    
+     
+           
+            //   multiplication += (number *i);
+                // multiplication1 += (k+"x" + (i)+ "="+ (k*i)) + "<br/>";
+                  // document.getElementById("demo").innerHTML=multiplication1;
+                //   document.getElementById("demo").innerHTML=multiplication1;
+              }
+              html+="</div>";
+              multiplication+=html;
+              document.getElementById("demo").innerHTML=multiplication;
+
+            }
+
+            // html+="</div>"
+            //  document.getElementById("demo").innerHTML+=html;
+            }
+
+
+    </script>
+    
+</body>
+</html>
